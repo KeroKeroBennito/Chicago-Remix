@@ -1,0 +1,60 @@
+%------ Document Type & Packages ------
+%letterpaper is the US default papersize
+%RoW can be changed to A4 paper or article in the form of [a4paper, 12pt]
+%or [article, 12[pt]
+\documentclass[letterpaper,12pt]{article}
+%------ Font and Encoding ------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{times}
+%------ Margin Control ------
+\usepackage[margin=1in]{geometry}
+\raggedright
+\setlength{\parindent}{0.5in}
+%------ Line Spacing ------
+\usepackage{setspace}
+\setstretch{2} %double spacing
+%------ Page Numbering and Headers ------
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[R]{\normalsize \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+%------ Bibliography ------
+\usepackage[notes,backend=biber]{biblatex-chicago}
+\bibliography{sample} %insert the name of your .bib here
+\defbibheading{bibliography}{%
+\section*{\normalfont\centering\fontsize{12}{14}\selectfont Bibliography}}
+\AtBeginBibliography{\fontsize{12}{14}\selectfont}
+%------ Footnotes ------
+\renewcommand{\footnotesize}{\fontsize{12}{14}\selectfont}
+\setlength{\footnotesep}{0.3in}
+
+%------ Document Start ------
+
+\begin{document}
+\title{\vspace{2in}\normalsize Title\vspace{2in}}
+\author{\normalsize Author \\[-0.3in] \normalsize Class}
+\date{\vspace{-0.25in}\normalsize Date}
+\maketitle
+\pagenumbering{gobble}
+\newpage
+
+\pagenumbering{arabic}
+Type everything within here. 
+
+The \textbackslash autocite{} command can be used to add citations to your document in compliance with the 17th Edition of the Chicago Manual of Style for instance 
+
+"The Chartres Cathedral influenced gothic architecture all over Europe.
+Inspiration from the Chartres Cathedral can be seen in Cologne, Germany; Westminster, England; and even all the way in Leon, Spain\autocite{simson}"
+
+I've included a sample.bib to give examples of the general format, although most autocitation websites will do this for you, all you will need to do is give it a custom name such as \textbackslash autocite{unesco} and \LaTeX will do the rest for you.
+
+
+\newpage
+\printbibliography
+
+
+\end{document}
+
